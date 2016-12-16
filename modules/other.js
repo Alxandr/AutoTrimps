@@ -19,14 +19,14 @@ function autoRoboTrimp() {
 //Version 3.6 Golden Upgrades
 function autoGoldenUpgrades() {
     //get the numerical value of the selected index of the dropdown box
-    try {
+    /*try {
         var setting = document.getElementById('AutoGoldenUpgrades').value;
         if (setting == "Off") return;   //if disabled, exit.
         var num = getAvailableGoldenUpgrades();
         if (num == 0) return;       //if we have nothing to buy, exit.
         //buy one upgrade per loop.
         buyGoldenUpgrade(setting);
-    } catch(err) { debug("Error in autoGoldenUpgrades: " + err.message); }
+    } catch(err) { debug("Error in autoGoldenUpgrades: " + err.message); }*/
 }
 
 //Exits the Spire after completing the specified cell.

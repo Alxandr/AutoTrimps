@@ -11,7 +11,7 @@ div#logConfigHolder.btn-group {
 /*For the NEWUI2.js settings window*/
 
 /* Style the list */
-ul.tab {
+ul.autotrimps-settings-tabs {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -21,10 +21,10 @@ ul.tab {
 }
 
 /* Float the list items side by side */
-ul.tab li {float: left;}
+ul.autotrimps-settings-tabs li {float: left;}
 
 /* Style the links inside the list items */
-ul.tab li a {
+ul.autotrimps-settings-tabs li a {
     display: inline-block;
     color: black;
     text-align: center;
@@ -34,10 +34,10 @@ ul.tab li a {
     font-size: 2vh;
 }
 /* Create an active/current tablink class */
-ul.tab li a.active {background-color: #ccc;}
+ul.autotrimps-settings-tabs li a.active {background-color: #ccc;}
 
 /* Change background color of links on hover */
-ul.tab li a:hover {background-color: #ddd;}
+ul.autotrimps-settings-tabs li a:hover {background-color: #ddd;}
 
 /* Style the tab content */
 .tabcontent {

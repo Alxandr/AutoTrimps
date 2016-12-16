@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "module": "amd",
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "moduleResolution": "node",
+    "lib": [
+      "es5",
+      "dom"
+    ],
+    "alwaysStrict": true,
+    "target": "es5",
+    "jsx": "react",
+    "jsxFactory": "dom"
+  }
+}

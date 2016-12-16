@@ -1,14 +1,14 @@
 // ==UserScript==
 // @name         AutoTrimpsV2+genBTC
 // @namespace    https://github.com/genbtc/AutoTrimps
-// @version      2.1.3.11-genbtc-12-12-2016+Modular
+// @version      2.1.3.11-Alxandr-12-12-2016+Modular
 // @description  try to take over the world!
 // @author       zininzinin, spindrjr, belaith, ishakaru, genBTC
 // @include      *trimps.github.io*
 // @include      *kongregate.com/games/GreenSatellite/trimps
 // @grant        none
 // ==/UserScript==
-var ATversion = '2.1.3.11-genbtc-12-12-2016+Modular';
+var ATversion = '2.1.3.11-Alxandr-12-12-2016+Modular';
 
 ////////////////////////////////////////////////////////////////////////////////
 //Main Loader Initialize Function (loads first, load everything else)///////////
@@ -25,6 +25,12 @@ if (atscript !== null) {
 document.head.appendChild(document.createElement('script')).src = base + module + 'utils.js';
 
 function initializeAutoTrimps() {
+    // Load libraries
+    var libs = ['https://cdnjs.cloudflare.com/ajax/libs/inferno/1.0.0-beta33/inferno.min.js'];
+    for (var i = 0; i < libs.length; i++) {
+        document.head.appendChild(document.createElement('script')).src = libs[i];
+    }
+
     loadPageVariables();
     document.head.appendChild(document.createElement('script')).src = base + 'NewUI2.js';
     document.head.appendChild(document.createElement('script')).src = base + 'Graphs.js';
@@ -79,7 +85,7 @@ function delayStartAgain(){
     setInterval(mainLoop, runInterval);
     setInterval(guiLoop, runInterval*10);
     updateCustomButtons();
-    document.getElementById('Prestige').value = autoTrimpSettings.PrestigeBackup.selected;
+    //document.getElementById('Prestige').value = autoTrimpSettings.PrestigeBackup.selected;
 }
 
 ////////////////////////////////////////
@@ -144,8 +150,8 @@ function mainCleanup() {
 function mainLoop() {
     ATrunning = true;
     if(game.options.menu.showFullBreed.enabled != 1) toggleSetting("showFullBreed");    //more detail
-    addbreedTimerInsideText.innerHTML = parseFloat(game.global.lastBreedTime/1000).toFixed(1) + 's'; //add hidden next group breed timer;
-    if (armycount.className != "tooltipadded") addToolTipToArmyCount();
+    //addbreedTimerInsideText.innerHTML = parseFloat(game.global.lastBreedTime/1000).toFixed(1) + 's'; //add hidden next group breed timer;
+    //if (armycount.className != "tooltipadded") addToolTipToArmyCount();
     mainCleanup();
     if(getPageSetting('PauseScript') || game.options.menu.pauseGame.enabled || game.global.viewingUpgrades || ATrunning == false) return;
     game.global.addonUser = true;
@@ -174,7 +180,7 @@ function mainLoop() {
     else if (getPageSetting('ManualGather2')==3) manualLabor2();  //"Auto Gather/Build #2"     (")
     if (getPageSetting('AutoMaps')) autoMap();          //"Auto Maps"   (automaps.js)
     if (getPageSetting('GeneticistTimer') >= 0) autoBreedTimer(); //"Geneticist Timer" / "Auto Breed Timer"     (autobreedtimer.js)
-    if (autoTrimpSettings.AutoPortal.selected != "Off") autoPortal();   //"Auto Portal" (hidden until level 40) (portal.js)
+    //if (autoTrimpSettings.AutoPortal.selected != "Off") autoPortal();   //"Auto Portal" (hidden until level 40) (portal.js)
     if (getPageSetting('AutoHeirlooms2')) autoHeirlooms2(); //"Auto Heirlooms 2" (heirlooms.js)
     else if (getPageSetting('AutoHeirlooms')) autoHeirlooms();//"Auto Heirlooms"      (")
     if (getPageSetting('AutoUpgradeHeirlooms') && !heirloomsShown) autoNull();  //"Auto Upgrade Heirlooms" (heirlooms.js)    
@@ -193,7 +199,7 @@ function mainLoop() {
     oldBAFsetting = BAFsetting;                                            //enables built-in autofight once when disabled
 
     if (getPageSetting('DynamicPrestige2')>0) prestigeChanging2(); //"Dynamic Prestige" (dynprestige.js)
-    else autoTrimpSettings.Prestige.selected = document.getElementById('Prestige').value; //if we dont want to, just make sure the UI setting and the internal setting are aligned.
+    //else autoTrimpSettings.Prestige.selected = document.getElementById('Prestige').value; //if we dont want to, just make sure the UI setting and the internal setting are aligned.
 
     //track how many overkill world cells we have beaten in the current level. (game.stats.cellsOverkilled.value for the entire run)
     if (game.options.menu.overkillColor.enabled == 0) toggleSetting('overkillColor');   //make sure the setting is on.
